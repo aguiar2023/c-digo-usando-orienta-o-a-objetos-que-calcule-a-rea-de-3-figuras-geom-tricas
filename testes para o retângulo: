@@ -1,0 +1,39 @@
+[TestFixture]
+public class RetanguloTest
+{
+    [Test]
+    public void CalcularAreaRetanguloComLadosePositivosDeveRetornarAreaCorreta()
+    {
+        // Arrange
+        var retangulo = new Retangulo(5.0, 4.0);
+
+        // Act
+        var areaCalculada = retangulo.CalcularArea();
+
+        // Assert
+        Assert.That(areaCalculada, Is.EqualTo(20.0));
+    }
+
+    [Test]
+    public void CalcularAreaRetanguloComUmLadoZeroDeveRetornarZero()
+    {
+        // Arrange
+        var retangulo = new Retangulo(0.0, 4.0);
+
+        // Act
+        var areaCalculada = retangulo.CalcularArea();
+
+        // Assert
+        Assert.That(areaCalculada, Is.EqualTo(0.0));
+    }
+
+    [Test]
+    public void CalcularAreaRetanguloComLadosNegativosDeveRetornarExcecao()
+    {
+        // Arrange
+        var retangulo = new Retangulo(-5.0, 4.0);
+
+        // Act & Assert
+        Assert.Throws<ArgumentException>(() => retangulo.CalcularArea());
+    }
+}
