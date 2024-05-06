@@ -1,0 +1,10 @@
+Implementando a classe Retângulo:
+
+public class Retangulo
+{
+    private double ladoA;
+    private double ladoB;
+
+    public Retangulo(double ladoA, double ladoB)
+    {
+        if (ladoA <= 0 || ladoB <= 0)
