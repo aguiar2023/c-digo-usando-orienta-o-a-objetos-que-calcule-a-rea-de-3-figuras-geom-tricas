@@ -1,0 +1,25 @@
+Implementando a classe Triângulo:
+
+Com base nos testes, podemos implementar a classe Triangulo:
+
+public class Triangulo
+{
+    private double baseTriangulo;
+    private double alturaTriangulo;
+
+    public Triangulo(double baseTriangulo, double alturaTriangulo)
+    {
+        if (baseTriangulo <= 0 || alturaTriangulo <= 0)
+        {
+            throw new ArgumentException("Base e altura devem ser maiores que zero.");
+        }
+
+        this.baseTriangulo = baseTriangulo;
+        this.alturaTriangulo = alturaTriangulo;
+    }
+
+    public double CalcularArea()
+    {
+        return (baseTriangulo * alturaTriangulo) / 2;
+    }
+}
