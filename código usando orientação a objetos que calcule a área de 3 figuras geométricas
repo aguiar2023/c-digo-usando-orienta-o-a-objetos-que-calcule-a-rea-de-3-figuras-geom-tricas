@@ -1,0 +1,41 @@
+using NUnit.Framework;
+
+[TestFixture]
+public class TrianguloTest
+{
+    [Test]
+    public void CalcularAreaTrianguloComBaseEAlturaPositivasDeveRetornarAreaCorreta()
+    {
+        // Arrange (Preparar)
+        var triangulo = new Triangulo(5.0, 4.0);
+
+        // Act (Acionar)
+        var areaCalculada = triangulo.CalcularArea();
+
+        // Assert (Asegurar)
+        Assert.That(areaCalculada, Is.EqualTo(10.0));
+    }
+
+    [Test]
+    public void CalcularAreaTrianguloComBaseEAlturaZeroDeveRetornarZero()
+    {
+        // Arrange
+        var triangulo = new Triangulo(0.0, 0.0);
+
+        // Act
+        var areaCalculada = triangulo.CalcularArea();
+
+        // Assert
+        Assert.That(areaCalculada, Is.EqualTo(0.0));
+    }
+
+    [Test]
+    public void CalcularAreaTrianguloComBaseOuAlturaNegativaDeveRetornarExcecao()
+    {
+        // Arrange
+        var triangulo = new Triangulo(-5.0, 4.0);
+
+        // Act & Assert
+        Assert.Throws<ArgumentException>(() => triangulo.CalcularArea());
+    }
+}
